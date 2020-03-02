@@ -5,8 +5,8 @@ function detectType(input) {
     case 'string':
         return 'string';
     case 'number':
-        if (isNaN(input)) { //Добавлено в связи с требованием об обязательной проверке на NaN
-          return 'NaN'; //Задание не уточняет, что должно выводиться при NaN. Сейчас будет возвращаться строка "NaN"
+        if (isNaN(input)) {
+          return undefined;
         }
         return 'number';
     default:
