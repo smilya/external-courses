@@ -18,8 +18,8 @@ function countChars(str) {
       console.log(`${key}: ${unics[key]}`);
     }    
   }
-  return undefined; // тесты проходятся и без этой строчки, но она нужна по требованиям
-                    // к оформлению кода. Можно ее убрать?
+  return undefined; // the record is added accoridng to general tasks requirements
+                    // anyway tests are passed without it either. Let me delete the record please?
 }
 
 module.exports = countChars;
