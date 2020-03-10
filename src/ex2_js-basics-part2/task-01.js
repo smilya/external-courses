@@ -10,7 +10,7 @@ function detectType(input) {
         }
         return 'number';
     default:
-        return undefined;
+        return undefined; // here <undefined> after return is required by lint
   }
 }
 

@@ -5,7 +5,7 @@ function lookOverArr(arr) {
     console.log (arr[i]);
   }  
   console.log (`The array has ${(arr.length)} elements`);
-  return undefined;
+  return;
 }
 
 module.exports = lookOverArr;
