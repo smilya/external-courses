@@ -18,8 +18,7 @@ function countChars(str) {
       console.log(`${key}: ${unics[key]}`);
     }    
   }
-  return undefined; // the record is added accoridng to general tasks requirements
-                    // anyway tests are passed without it either. Let me delete the record please?
+  return;  
 }
 
 module.exports = countChars;
