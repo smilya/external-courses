@@ -1,9 +1,8 @@
 'use strict';
 
-function isThereKeyInObj(key, obj) {
-  if (key in obj) {return true};
-  return false;
+function isKeyInObj(key, obj) {
+  return Object.keys(obj).includes(key);
 }
 
-module.exports = isThereKeyInObj;
+module.exports = isKeyInObj;
 
