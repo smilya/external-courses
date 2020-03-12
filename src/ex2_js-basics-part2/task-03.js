@@ -1,17 +1,15 @@
 'use strict';
 
 function differElements(arr) {
-  let evens = 0;
-  let odds = 0;
-  let nulls = 0;
+  let answer = [0, 0, 0];
   for (let elem of arr) {
     if (typeof(elem) !== "number") {continue};
-    if (elem === 0) {nulls++;}
-    else if (elem % 2 === 0) {evens++;}
-    else if (elem % 2 === 1) {odds++;}
+    if (elem === 0) {answer[2]++;}
+    else if (elem % 2 === 0) {answer[0]++;}
+    else if (elem % 2 === 1) {answer[1]++;}
   }
-  console.log(`Evens: ${evens}, odds: ${odds}, nulls: ${nulls}`);
-  return [evens, odds, nulls];
+  console.log(`Evens: ${answer[0]}, odds: ${answer[1]}, nulls: ${answer[2]}`);
+  return answer;
 }
 
 module.exports = differElements;
