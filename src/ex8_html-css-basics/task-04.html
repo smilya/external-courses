@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="task-04.css">
+  <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text&display=swap" rel="stylesheet">
+  <title>task-04</title>
+  <style>
+    * { font-size: 1.1rem; }
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 20px navy;  
+    }
+    h2, h3 { 
+      font-family: 'DM Serif Text', serif; 
+      letter-spacing: 1.5px;
+      text-decoration: underline;
+      margin: 0;
+    }
+    h2 { 
+      font-size: 1.8rem;
+      color: navy;
+      margin-left: -15px;
+      margin-bottom: 15px;
+    }
+    h3 { 
+      font-size: 1.3rem;
+      color: midnightblue;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <header style="margin-bottom: 30px; margin-top: 0;">
+      <h1>HTML Basics</h1>
+    </header>
+    <section class="lists" style="margin-bottom: 20px;">
+      <h2>Lists</h2>
+      <h3>Ordered list</h3>
+      <ol>
+        <li>first item</li>
+        <li>second item</li>
+        <li>third item</li>
+        <li>fourth item</li>
+        <li>firth item</li>
+      </ol>
+      <h3>Unordered list</h3>
+      <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+      </ul>
+      <h3>Description list</h3>
+      <dl>
+        <dt>Name</dt>
+        <dd>Godzilla</dd>
+        <dt>Born</dt>
+        <dd>1952</dd>
+        <dt>Birthplace</dt>
+        <dd>Japan</dd>
+        <dt>Color</dt>
+        <dd>Green</dd>
+      </dl>
+      <h3>Nested list</h3>
+      <ul>
+        <li>List item one</li>
+        <li>List item two width subitems</li>
+        <li  style="list-style: none;">
+          <ul>
+            <li>Subitem 1</li>
+            <li style="list-style: none;">
+                <ul style="list-style-type: disc;">
+                  <li>SubSumitem 1</li>
+                  <li>SubSumitem 2</li>
+                </ul>
+            </li>
+            <li>Subitem 2</li>
+          </ul>
+        </li>
+        <li>Final list item</li>
+      </ul> 
+      <h3>List with links</h3>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">News</a>
+        </li>
+        <li>
+          <a href="#">Contacts</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+      </ul>
+    </section>
+    <section class="paragraphs" style="margin-bottom: 10px;">
+      <h2>Paragraphs</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat id aliquid, consectetur ducimus in ad perferendis sit accusantium at fugit magnam praesentium temporibus eos non, expedita laudantium excepturi minus reprehenderit obcaecati recusandae. Consequatur doloremque natus ut, odit tenetur quas.</p>
+      <p style="margin-bottom: 0;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+        Debitis, molestiae cumque, adipisci fugit dolores.<br>
+        Est quam hic iste tenetur ipsam fugiat maiores omnis nobis.<br>
+        Ipsam animi iste id reprehenderit ipsum consectetur sint porro?<br>
+        Ullam officia nostrum delectus laborum corporis.<br>
+        Eligendi voluptatum aspernatur velit magni impedit nisi.<br>
+        Voluptate perspiciatis sed repellat quam hic eaque et.<br>
+        Totam sint in veniam, accusantium beatae perspiciatis possimus?<br>
+        Et fuga suscipit mollitia molestiae, labore ducimus enim.<br>
+        Quos nisi modi officiis provident debitis atque nemo natus.
+      </p>
+    </section>
+    <section class="tables" style="margin-bottom: 10px;">
+      <h2 style="margin-bottom: 30px;">Tables</h2>
+      <div>
+        <table>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+          </tr>
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+          </tr>
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <section class="image" style="margin-bottom: 10px;">
+      <h2 style="margin-bottom: 30px;">Image</h2>
+      <div>
+        <img style="width: 200px;" src="https://sun3-11.userapi.com/ChWKy8hrI3L_mqLEXnjQTcXhmIHfYxlF98UXow/nPOAeJezGSM.jpg" alt="kitty">
+      </div>
+    </section>      
+    <section class="pre-tag">
+      <h2 style="margin-bottom: 30px;">Pre tag</h2>
+      <div>
+        <pre>
+if (time = 20) {
+    greeting = "Good day";
+} else {
+    greeting = "Good evening";
+}</pre>
+      </div>
+    </section>
+</div>
+</body>
+</html>
