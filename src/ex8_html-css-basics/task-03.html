@@ -3,69 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="task-03.css">
   <title>task-03</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-size: 0;
-      vertical-align: top;
-    }
-    h3 {
-      margin-bottom: 5px;
-      font-size: 20px;
-    }
-    h3:not(:first-of-type) {
-      margin-top: 50px;
-    }
-    h4 {
-      margin-top: 0;
-      font-size: 16px;
-    } 
-    .block {
-      display: inline-block;
-      padding: 40px 100px;
-      background-color: lightcyan;
-      vertical-align: top;
-      font-size: 14px;
-    }
-    .border {
-      background-color: steelblue;
-      display: inline-block;
-    }
-    .border-1 {
-      border: 20px solid steelblue;
-    }
-    .border-2 {
-      padding: 20px;
-    }
-    .border-3--horizon {
-      height: 20px;
-      width: 294px;
-      display: block;
-    }
-    .border-3--vertical {
-      width: 20px;
-      height: 96px;
-    }
-  </style>
 </head>
 <body>
-  <h3>Method 1</h3>
-  <h4> Attribute "border"</h4>
-  <div class="block border-1">Method 1</div>
+  <header>
+    <h1>Element borders setup</h1>
+  </header>
+  <main>
+    <h3>Method 1</h3>
+    <h4> Attribute "border"</h4>
+    <div class="block border-1">Method 1</div>
+    
+    <h3>Method 2</h3>
+    <h4>Block-container</h4>
+    <div class="border border-2">
+      <div class="block">Method 2</div>
+    </div>
   
-  <h3>Method 2</h3>
-  <h4>Block-container</h4>
-  <div class="border border-2">
-    <div class="block">Method 2</div>
-  </div>
-
-  <h3>Method 3</h3>
-  <h4>Blocks as borders</h4> 
-  <div class="border border-3--horizon"></div>
-  <div class="border border-3--vertical"></div>
-  <div class="block">Method 3</div>
-  <div class="border border-3--vertical"></div>
-  <div class="border border-3--horizon"></div>
+    <h3>Method 3</h3>
+    <h4>Blocks as borders</h4> 
+    <div class="border border-3--horizon"></div>
+    <div class="border border-3--vertical"></div>
+    <div class="block">Method 3</div>
+    <div class="border border-3--vertical"></div>
+    <div class="border border-3--horizon"></div>
+  </main>
 </body>
 </html>

@@ -1,0 +1,8 @@
+body > div {
+  background-color: indianred;
+  height: 30px;
+}
+
+body > img {
+  width: 250px;
+}
