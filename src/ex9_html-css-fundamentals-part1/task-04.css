@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+h2:not(:first-of-type) {
+  margin-top: 60px;
+}
+
+h3 {
+  margin-top: 5px;
+}
+
+body {
+  background-color: azure;
+}
+
+.basis {
+  width: 450px;
+  height: 250px;
+  background-color: RGB(108, 186, 142);
+}
+
+.option-1 {
+  box-shadow: 10px 10px 0 0 RGB(151, 207, 175), 
+    20px 20px 0 0 RGB(195, 228, 209);
+}
+
+.option-2 {
+  position: relative;
+}
+
+.option-2::before, 
+.option-2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.option-2::before {
+  transform: translate(10px, 10px);
+  background-color: RGB(151, 207, 175);
+  z-index: -1;
+}
+
+.option-2::after {
+  transform: translate(20px, 20px);
+  background-color: RGB(195, 228, 209);
+  z-index: -2;
+}
+
+.option-3 {
+  background-color: azure;
+  width: 470px;
+  height: 270px;
+  background-image: linear-gradient(RGB(108, 186, 142), RGB(108, 186, 142)),
+    linear-gradient(RGB(151, 207, 175), RGB(151, 207, 175)),
+    linear-gradient(RGB(195, 228, 209), RGB(195, 228, 209));
+  background-size: calc(100% - 20px) calc(100% - 20px);
+  background-repeat: no-repeat;
+  background-position: 0 0, 10px 10px, 20px 20px;
+}
