@@ -1,7 +1,8 @@
 'use strict'
 
 function slice(array, begin=0, end=array.length) {
-  let beginChecked, endChecked; // these variables are declared as lint does not allow to modify the function parameters
+  // these variables are declared as lint does not allow to modify the function parameters
+  let beginChecked, endChecked; 
   if(begin < 0) {
     beginChecked = array.length + begin;
   }
@@ -14,11 +15,11 @@ function slice(array, begin=0, end=array.length) {
   else {
     endChecked = end;
   }
-  let answer = [];
+  let result = [];
   for (let i = beginChecked; i < endChecked && i < array.length; i++) {
-    answer.push(array[i]);
+    result.push(array[i]);
   }
-  return answer;
+  return result;
 }
 
 module.exports = slice;

@@ -1,11 +1,13 @@
 'use strict'
 
-function reduce(array, callback, initialValue) {
+function reduce(array, callback, initialValue=array[0]) {
+  let i;
   let currentValue = initialValue;
-  let i = 0;
-  if (initialValue === undefined) {
-    currentValue = array[0];
+  if(currentValue === array[0]) {
     i = 1;
+  }
+  else {
+    i = 0;
   }
   for (i; i < array.length; i++) {
     currentValue = callback(currentValue, array[i], i, array);
