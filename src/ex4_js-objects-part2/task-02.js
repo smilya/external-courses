@@ -1,7 +1,7 @@
 'use strict'
 
-function createOrphanObj() {
+function createDictionary() {
   return Object.create(null);
 }
 
-module.exports = createOrphanObj;
+module.exports = createDictionary;

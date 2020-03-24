@@ -1,18 +1,18 @@
 'use strict'
 
 function insertWord(str, word, position) {
-  let arr = str.split(" ");
-  let frontStr = '';
-  let i = 0;
+  let arr = str.split(" "),
+    firstStrPart = '',
+    i = 0,
+    lastStrPart = '';
   for (i; i < arr.length - position; i++) {
-    frontStr = frontStr + arr[i] + ' ';
+    firstStrPart = firstStrPart + arr[i] + ' ';
   }
-  let backStr = '';
   for (i; i < arr.length; i++) {
-    backStr = backStr + arr[i] + " ";
+    lastStrPart = lastStrPart + arr[i] + " ";
   }
-  backStr = backStr.trim();
-  return frontStr + word + " " + backStr;
+  lastStrPart = lastStrPart.trim();
+  return firstStrPart + word + " " + lastStrPart;
 }
 
 module.exports = insertWord;
