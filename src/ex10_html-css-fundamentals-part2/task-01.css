@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: teal;
+  color: cornsilk;
+  margin: 0;
+}
+
+h2 {
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+img {
+  width: 400px;  
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.shaped {
+  -webkit-mask-image: url(./task-01-mask.png);
+  -webkit-mask-size: 380px; 
+  transform: translateX(100px);
+}
+
+.additional {
+  width: 200px;
+  transform: translateX(-150px);
+  margin-top: -30px;
+}

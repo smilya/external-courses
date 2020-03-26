@@ -1,0 +1,41 @@
+#customers {
+  display: inline-block;
+  border-collapse: collapse;
+}
+
+#customers tr:not(.tableHeader) {
+  text-align: left;
+}
+
+tr {
+  background-color: #F3F6FA;
+}
+
+tr:nth-of-type(2n+1) {
+  background-color: #E4EAF3;
+}
+
+tr:not(.tableHeader):hover {
+  background-color: #E2E5E9;
+}
+
+th {
+  padding: 5px 15px;
+}
+
+td, th {
+  border: 3px solid white;
+}
+
+td {
+  padding: 15px;  
+}
+
+.tableHeader {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.name {
+  text-transform: capitalize;
+}
