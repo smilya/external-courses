@@ -1,0 +1,21 @@
+.header {
+  background-color:  #0067A3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0 8px 18px;
+}
+
+.header__menu {
+  margin-right: 14px;
+}
+
+.header__title {
+  font-size: 28px;
+  color: white;
+  flex-grow: 1;
+}
+
+.header__newListButton {
+  margin-right: 50px;
+}

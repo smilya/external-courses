@@ -1,0 +1,155 @@
+body {
+  padding: 0 100px 100px;
+  background-color: rgba(240, 255, 255, 0.3);
+}
+
+h2:not(:first-of-type) {
+  margin-top: 100px;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+.container {
+  display: flex;
+  width: 300px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-1 .preloader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid lightgray;
+  border-radius: 50%;
+  border-bottom: 3px solid deepskyblue;
+  position: relative;
+  animation: rotate 2s linear infinite;
+}
+
+.animation-1 .preloader::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid lightgray;
+  border-radius: 50%;
+  border-bottom: 3px solid royalblue;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  animation: rotate 16s linear infinite;
+}
+
+.animation-1 .preloader::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid lightgray;
+  border-radius: 50%;
+  border-bottom: 3px solid purple;
+  position: relative;
+  top: calc(-100% + 11px);
+  left: 7px;
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-2 {
+  align-items: stretch;
+}
+
+.animation-2 .wall {
+  width: 20px;
+  background-color: firebrick;
+}
+
+.animation-2 .room {
+  flex-grow: 1;
+  position: relative;
+}
+
+.animation-2 .ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: steelblue;
+  position: absolute;
+  animation: bounce 3s linear infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: calc(100% - 20px);
+    top: calc(25% - 5px);
+  }
+  50% {
+    left: 0;
+    top: calc(50% - 10px);
+  }
+  
+  75% {
+    left: calc(100% - 20px);
+    top: calc(75% - 15px);
+  }
+  100% {
+    left: 0;
+    top: calc(100% - 20px);
+  } 
+}
+
+.animation-3 .figure {
+  width: 100px;
+  height: 100px;
+  animation: figure 8s linear infinite;
+}
+
+@keyframes figure {
+  0%, 8.5% {
+    background: radial-gradient(yellow, indianred 80%);
+    border-radius: 50%;
+    transform: scale(1) skew(0) rotate(0);
+  }
+  17%, 25.5% {
+    background: radial-gradient(yellow, indianred 80%);
+    border-radius: 0;
+    transform: scale(1) skew(0) rotate(0);
+  }
+  34%, 42.5% {
+    background: linear-gradient(peru, wheat 80%);
+    border-radius: 0;
+    transform: scale(1) skew(0) rotate(0);
+  }
+  50%, 58.5% {
+    background: linear-gradient(peru, wheat 80%);
+    border-radius: 0;
+    transform: scale(0.3) skew(60deg) rotate(0);       
+  }
+  67%, 75.5% {
+    background: linear-gradient(peru, wheat 80%);
+    border-radius: 0;
+    transform: scale(0.3) skew(60deg) rotate(180deg);
+  }  
+  84%, 92.5% {
+    background: radial-gradient(yellow, indianred 80%);
+    border-radius: 0;
+    transform: scale(0.3) skew(60deg) rotate(180deg);
+  }
+  100% {
+    background: radial-gradient(yellow, indianred 80%);
+    border-radius: 50%;
+    transform: scale(1) skew(0) rotate(0);
+  } 
+}

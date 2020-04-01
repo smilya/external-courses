@@ -1,0 +1,48 @@
+body {
+  padding: 20px 100px;
+  font-size: 2rem;
+  background-color: rgba(240, 248, 255, 0.3);
+}
+
+h1 {
+  font-size: 38px;
+  margin-bottom: 60px;
+}
+
+.input {
+  border: 2px solid darkcyan;
+  background-color: rgba(175, 238, 238, .2);
+  display: inline-block;
+  padding: 20px 4px 4px 8px;
+  position: relative;
+}
+
+.input input {
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: transparent;
+}
+
+input + label {
+  position: absolute;
+  left: 8px;  
+  transition: font-size, bottom, color, font-weight;
+  transition-duration: 0.5s, 0.5s, 0.1s, 0.1s;
+  transition-timing-function: linear;
+  transition-delay: 0.5s, 0.5s, 1.5s, 1.5s;
+}
+
+input:invalid + label {  
+  bottom: 4px;
+  color: lightgray;
+}
+
+input:valid + label, 
+input:focus + label {
+  font-size: 16px;
+  bottom: 42px;
+  color: darkcyan;
+  font-weight: 700;
+}
