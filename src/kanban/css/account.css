@@ -1,0 +1,46 @@
+.account {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.account__icon {
+  background-color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.account__dropdown {
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  width: 8px;
+  height: 8px;
+  transform: rotate(-45deg);
+  margin: 0 5px 3px;
+}
+
+.account__dropdown--open {
+  transform: rotate(135deg);
+}
+
+.account__menu {
+  background-color: #0067A3;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+}
+
+.account__menuItem {
+  list-style-type: none;
+  color: white;
+  padding: 8px 15px;
+}
+
+.account__menuItem:hover {
+  background-color: white;
+  color: #0067A3;
+  font-weight: bold;
+}

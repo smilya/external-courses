@@ -7,40 +7,43 @@
   <title>Kanban</title>
 </head>
 <body>
-  <header class="header">
-    <nav class="menu header__menu">
-      <div class="menu__burger">
-        <div class="menu__burgerCircle"></div>
-        <div class="menu__burgerLine"></div>
-        <div class="menu__burgerCircle"></div>
-        <div class="menu__burgerLine"></div>
-        <div class="menu__burgerCircle"></div>
-        <div class="menu__burgerLine"></div>
+  <div class="container">
+    <header class="header">
+      <nav class="menu header__menu">
+        <div class="menu__burger">
+          <div class="menu__burgerCircle"></div>
+          <div class="menu__burgerLine"></div>
+          <div class="menu__burgerCircle"></div>
+          <div class="menu__burgerLine"></div>
+          <div class="menu__burgerCircle"></div>
+          <div class="menu__burgerLine"></div>
+        </div>
+      </nav>
+      <h1 class="header__title">Awesome Kanban Board</h1>
+      <div class="newListButton header__newListButton">
+        <img src="./images/header__newList.svg" alt="cross icon">
+        <span class="newListButton__title">Create new list</span>
       </div>
-    </nav>
-    <h1 class="header__title">Awesome Kanban Board</h1>
-    <div class="newListButton header__newListButton">
-      <object type="image/svg+xml" data="./images/header__newList.svg"></object>
-      <span class="newListButton__title">Create new list</span>
-    </div>
-    <div class="personalAccount">
-      <object class="personalAccount__icon" type="image/svg+xml" data="./images/personalAccount.svg"></object>
-      <div class="personalAccount__dropdown"></div>
-    </div>
-  </header>
-
-  <!-- TEMPORARY TO BE DELETED -->
-  <div title="DUMMY TO BE DELETED" style="height: 300px;"></div>
-  <!-- END OF TEMPORARY CODE -->
-
-  <footer class="footer">
-    <div class="footer__tasksMonitor">
-      <p class="footer__p">Active tasks: <span id="activeTasks">&lt;N&gt;</span></p>
-      <p class="footer__p">Finished tasks: <span id="finishedTasks">&lt;M&gt;</span></p>
-    </div>
-    <div class="footer__outputData">
-      <p class="footer__p">Kanban board by <span id="outputDataName">&lt;NAME&gt;</span>, <span id="outputDataYear">&lt;YEAR&gt;</span></p>
-    </div>
-  </footer>
+      <div class="account">
+        <img class="account__icon" src="./images/account.svg" alt="account icon">
+        <div class="account__dropdown"></div>    
+      </div>
+    </header>
+  
+    <!-- TEMPORARY TO BE DELETED -->
+    <div title="DUMMY TO BE DELETED" style="height: 400px; background: #0079BF;"></div>
+    <!-- END OF TEMPORARY CODE -->
+  
+    <footer class="footer">
+      <div class="footer__tasksMonitor">
+        <p class="footer__p">Active tasks: <span id="activeTasks">&lt;N&gt;</span></p>
+        <p class="footer__p">Finished tasks: <span id="finishedTasks">&lt;M&gt;</span></p>
+      </div>
+      <div class="footer__outputData">
+        <p class="footer__p">Kanban board by <span id="outputDataName">&lt;NAME&gt;</span>, <span id="outputDataYear">&lt;YEAR&gt;</span></p>
+      </div>
+    </footer>
+  </div>
 </body>
+<script src="./js/personal-account.js"></script>
 </html>
