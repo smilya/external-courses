@@ -1,0 +1,92 @@
+.tasks {
+  padding: 12px 0 10px 12px;
+  background-color: #EBECF0;
+  border-radius: 10px;
+  display: inline-block;
+  max-height: 100%;
+  /* чтобы скролить вниз, нужно тут зафиксировать высоту */
+}
+
+.tasks__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  min-width: 270px;
+}
+
+.tasks__menu {
+  padding: 3px 5px;
+  vertical-align: top;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.tasks__menu::before {
+  content: "\2026";
+  font-size: 32px;
+  line-height: 0;
+  vertical-align: top;
+}
+
+.tasks__container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-right: 12px;
+}
+
+.tasks__container::-webkit-scrollbar {
+  width: 12px; background-color: white;
+}
+.tasks__container::-webkit-scrollbar-thumb {
+  background: #CBCBCB;
+  border-radius: 5px;
+}
+.tasks__container::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.tasks__input:not(:first-of-type) {
+  margin-top: 15px;
+}
+
+.tasks__button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 4px 4px 0 0;
+  align-self: start;
+  cursor: pointer;
+  color: #5E6C84;
+  margin-top: 8px;
+  line-height: 29px;
+  user-select: none;
+}
+
+.tasks__symbol {
+  font-size: 26px;
+  line-height: 10px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  color: #5E6C84;
+}
+
+.tasks__button:hover {
+  color: black;
+}
+
+.tasks__button:hover .tasks__symbol {
+  color: black;
+  font-weight: 700;
+}
+
+.tasks__button:disabled {
+  color: white;
+  cursor: default;
+}
+
+.tasks__button:disabled .tasks__symbol {
+  color: white;
+}

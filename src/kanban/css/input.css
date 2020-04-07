@@ -1,0 +1,33 @@
+.input {
+  display: inline-block;
+  padding: 7px 8px;
+  border-radius: 5px;
+  background-color: white;
+  width: 258px;
+}
+
+.input__element {
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Roboto";
+  width: 242px;
+}
+
+.input__area {
+  height: 21px;
+  resize: none;  
+  border: none;
+  outline: none;  
+  overflow: hidden;  
+  display: block;
+}
+
+.input__area:disabled {
+  background-color: #fff;
+}
+
+.input__comparator {
+  min-height: 21px;
+  position: absolute;
+  visibility: hidden; 
+}
