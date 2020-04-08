@@ -3,14 +3,13 @@
   padding: 7px 8px;
   border-radius: 5px;
   background-color: white;
-  width: 258px;
+  width: 100%;
 }
 
 .input__element {
   font-size: 18px;
   line-height: 21px;
-  font-family: "Roboto";
-  width: 242px;
+  font-family: "Roboto";  
 }
 
 .input__area {
@@ -20,6 +19,7 @@
   outline: none;  
   overflow: hidden;  
   display: block;
+  width: 100%;
 }
 
 .input__area:disabled {
@@ -30,4 +30,22 @@
   min-height: 21px;
   position: absolute;
   visibility: hidden; 
+}
+
+.input__dropdown {
+  outline: none;
+  padding-left: 10px;
+}
+
+.input__dropdownItem {
+  color: #5E6C84;
+  list-style-type: none;  
+  margin-top: 3px;
+  line-height: 110%;
+}
+
+.input__dropdownItem:hover {
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
 }

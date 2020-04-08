@@ -1,46 +1,30 @@
 'use strict'
 
-// Использовать при добавлении и удалении поля в tasks
-function setTasksContainerHeight(tasks) {  
-  let container = tasks.querySelector('.tasks__container');
-  if (!container) return;
-  container.style.height = '';
-  let tasksHeight = tasks.clientHeight;
-  container.style.height = (tasksHeight - 55) + 'px';
-}
-
-// Использовать при добавлении нового tasks
-function setTasksVerticalResize(tasks) {
-  window.addEventListener('resize', () => {
-    setTasksContainerHeight(tasks);
-  })
-}
-
-function createNewTasks() {
+function tasks__createNewTasks() {
   let innerHtml = `
-    <div class="tasks__header">
-      <span class="tasks__title"></span>
-      <div class="tasks__menu"></div>
-    </div>
-    <div class="tasks__container">
-      <button class="tasks__button"><span class="tasks__symbol">+</span> Add card</button> 
+    <div class="tasks main__tasks">
+      <div class="tasks__header">
+        <span class="tasks__title"></span>
+        <div class="tasks__menu"></div>
+      </div>
+      <div class="tasks__container">
+        <button class="tasks__button"><span class="tasks__symbol">+</span> Add card</button> 
+      </div>
     </div>`;
 
   let newTasks = document.createElement('div');
-  newTasks.classList.value = 'tasks main__tasks';
   newTasks.innerHTML = innerHtml;
   return newTasks;
 }
 
-function addNewTasks(tasksObj) {
-  let newTasks = createNewTasks();
-  document.querySelector('.main').append(newTasks);
-  setTasksVerticalResize(newTasks);
-  newTasks.querySelector('.tasks__title').innerText = capitalizeWords(tasksObj.title);
-  return newTasks;
+function tasks__addNewTasks(tasksObj) {
+  let newTasksContainer = tasks__createNewTasks();
+  document.querySelector('.main').append(newTasksContainer);
+  newTasksContainer.querySelector('.tasks__title').innerText = tasks__capitalizeWords(tasksObj.title); 
+  return newTasksContainer.firstElementChild;
 }
 
-function capitalizeWords(str) {
+function tasks__capitalizeWords(str) {
   let result = [];
   let words = str.split(' ');
   for (let word of words) {
@@ -49,4 +33,18 @@ function capitalizeWords(str) {
     result.push(letters.join(''));
   }
   return result.join(' ');
+}
+
+function tasks__setButtonsAvailability() {
+  let tasks = document.querySelectorAll('.tasks');
+  for (let i = 1; i < tasks.length; i++) {
+    let availableIssues = tasks[i - 1].querySelectorAll('.tasks__input');
+    let button = tasks[i].querySelector('.tasks__button');
+    if (availableIssues.length === 0) {
+      button.setAttribute('disabled', true);
+    }
+    else {
+      button.removeAttribute('disabled');
+    }
+  }
 }

@@ -1,11 +1,13 @@
 .tasks {
-  padding: 12px 0 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 282px;
+  max-height: calc(100vh - 57px - 56px - 40px);
   background-color: #EBECF0;
   border-radius: 10px;
-  display: inline-block;
-  max-height: 100%;
-  /* чтобы скролить вниз, нужно тут зафиксировать высоту */
-}
+  padding: 12px 0 10px 12px;
+} 
 
 .tasks__header {
   display: flex;
@@ -30,8 +32,7 @@
 }
 
 .tasks__container {
-  display: flex;
-  flex-direction: column;
+ height: 100%;
   overflow-y: auto;
   padding-right: 12px;
 }
@@ -48,7 +49,7 @@
 }
 
 .tasks__input:not(:first-of-type) {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .tasks__button {
@@ -60,8 +61,10 @@
   cursor: pointer;
   color: #5E6C84;
   margin-top: 8px;
-  line-height: 29px;
+  line-height: 1px;
   user-select: none;
+  height: 25px;
+  overflow: hidden;
 }
 
 .tasks__symbol {

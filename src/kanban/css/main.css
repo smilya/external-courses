@@ -1,21 +1,14 @@
 .main {
   background-color: #0079BF;
   height: calc(100vh - 57px - 56px);
+  
   padding: 20px;
   display: flex;  
-  align-items: flex-start;
   overflow-x: auto;
-  min-height: 140px;
 }
 
-.main__tasks:not(:last-of-type) {
+.main__tasks {
   margin-right: 24px;
-}
-
-.main::after {
-  content: "";
-  padding-left: 20px;
-  padding-top: 1px;
 }
 
 .main::-webkit-scrollbar {

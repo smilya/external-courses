@@ -62,6 +62,17 @@ function data__getIssueName(data, issueId) {
   return undefined; // для того, чтобы линт не ругался
 }
 
+function data__getIssueId(data, issueName) {
+  for (let tasksData of data) {
+    for (let issue of tasksData.issues) {
+      if (issue.name === issueName) {
+        return issue.id;
+      }
+    }
+  }
+  return undefined; // для того, чтобы линт не ругался
+}
+
 function data__addNewIssue(data, title) {
   let newIssueNumber = data__getLastIssueNumber(data) + 1;
   let issueId = 'issue'+newIssueNumber;
@@ -75,13 +86,24 @@ function data__addNewIssue(data, title) {
 }
 
 function data__removeIssue(data, issueId) {
+  let removedIssue;
   for (let tasksData of data) {
     for (let i = 0; i < tasksData.issues.length; i++) {
       if (tasksData.issues[i].id === issueId) {
+        removedIssue = tasksData.issues[i];
         tasksData.issues.splice(i, 1);
       }
     }
   }
+  return removedIssue;
+}
+
+function data__insertIssue(data, title, issue) {
+    for (let tasksData of data) {
+      if(tasksData.title === title) {
+        tasksData.issues.push(issue);
+      }
+    }
 }
 
 function data__modifyIssue(data, issueId, name) {
@@ -93,3 +115,13 @@ function data__modifyIssue(data, issueId, name) {
     }
   }
 }
+
+function data__getIssuesToAdd(data, tasksTitle) {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].title === tasksTitle) {
+      return data[i - 1].issues;
+    }
+  }
+  return undefined;
+}
+
