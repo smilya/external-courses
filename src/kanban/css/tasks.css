@@ -76,20 +76,20 @@
   color: #5E6C84;
 }
 
-.tasks__button:hover {
+.tasks__button:hover:not(.tasks__button--disabled) {
   color: black;
 }
 
-.tasks__button:hover .tasks__symbol {
+.tasks__button:hover:not(.tasks__button--disabled) .tasks__symbol {
   color: black;
   font-weight: 700;
 }
 
-.tasks__button:disabled {
+.tasks__button--disabled {
   color: white;
   cursor: default;
 }
 
-.tasks__button:disabled .tasks__symbol {
+.tasks__button--disabled .tasks__symbol {
   color: white;
 }

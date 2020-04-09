@@ -26,7 +26,7 @@ function setIssuesMoving() {
   });
 
   document.body.addEventListener('click', (event)=> {
-    if(!event.target.classList.contains('tasks__button')) {
+    if(!event.target.classList.contains('tasks__button') || event.target.classList.contains('tasks__button--disabled')) {
       return;
     }
     else if (event.target.closest('.tasks[id="backlog"]')) {

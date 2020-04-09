@@ -41,10 +41,12 @@ function tasks__setButtonsAvailability() {
     let availableIssues = tasks[i - 1].querySelectorAll('.tasks__input');
     let button = tasks[i].querySelector('.tasks__button');
     if (availableIssues.length === 0) {
-      button.setAttribute('disabled', true);
+      // button.setAttribute('disabled', true);
+      button.classList.add('tasks__button--disabled');
     }
     else {
-      button.removeAttribute('disabled');
+      // button.removeAttribute('disabled');
+      button.classList.remove('tasks__button--disabled');
     }
   }
 }
