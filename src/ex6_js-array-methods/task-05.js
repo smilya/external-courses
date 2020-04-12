@@ -1,11 +1,11 @@
 'use strict'
 
 function map(array, callback) {
-  let answer = [];
+  let result = [];
   for (let i = 0; i < array.length; i++) {
-    answer.push(callback(array[i], i, array));    
+    result.push(callback(array[i], i, array));    
   }
-  return answer;  
+  return result;  
 }
 
 module.exports = map;
