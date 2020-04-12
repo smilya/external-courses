@@ -1,0 +1,18 @@
+.newListButton {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 9px;
+}
+
+.newListButton:active {
+  transform: translate(1px, 1px);
+}
+
+.newListButton__title {
+  margin: 0 13px;
+  font-size: 18px;
+}
