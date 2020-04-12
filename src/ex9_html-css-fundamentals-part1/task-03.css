@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 40px;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button-outerShadow {
+  box-shadow: 0 4px 4px 0 lightgray;
+  border-radius: 15px;
+}
+
+.button-outerBorder {
+  background-color: white;
+  padding: 1px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 0 0 2px 0 black;
+}
+
+.button-innerBorder {
+  padding: 3px;
+  background-color: #CBCBCB;
+  border-radius: 14px;
+}
+
+.button-bodyBorder {
+  padding: 2px;
+  background: linear-gradient(#AEAEAE, #797979);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px 0 gray;
+}
+
+.button-body {
+  background: linear-gradient(180deg, #E0E0E0, #D2D2D2 50%, white);
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 11px 25px;
+  line-height: 24px;
+}
+
+.button-bodyShadow {
+  background: linear-gradient(180deg, #C7C7C7, #ADADAD);
+  height: 50%;
+  width: 103%;  
+  position: absolute;
+  top: 50%;
+  left: -1.5%;
+  border-radius: 40px;
+}
+
+.button-body > span {
+  position: relative;
+  z-index: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  text-shadow: 0 1px 2px white;
+  color: #58575C;
+  -webkit-user-select: none;
+}
+
+.button-body > span::before,
+.button-body > span::after {
+  content: '';
+  background-image: url('./task-03.png');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: inline-block;  
+}
+
+.button-body > span::before {
+  transform: translate(-10px, 4px);
+}
+
+.button-body > span::after {
+  transform: translate(10px, 4px);
+}
+
+.button:active {
+  transform: translate(1px, 1px);
+}
+
+.button:active span {
+  color: indianred;
+}
+
+.button:active span::before,
+.button:active span::after {
+  background-image: url('./task-03-active.png');
+}
