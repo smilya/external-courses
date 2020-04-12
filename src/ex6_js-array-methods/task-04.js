@@ -1,13 +1,13 @@
 'use strict'
 
 function filter(array, callback) {
-  let answer = [];
+  let result = [];
   for (let i = 0; i < array.length; i++) {
     if (callback(array[i], i, array)) {
-      answer.push(array[i]);
+      result.push(array[i]);
     }
   }
-  return answer;  
+  return result;  
 }
 
 module.exports = filter;

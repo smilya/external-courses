@@ -2,25 +2,25 @@
 
 function deepClone(obj) {
   if (Array.isArray(obj)) {
-    let answer = [];
+    let result = [];
     for (let i of obj) {
       if (typeof(i) === 'object') {
-        answer.push(deepClone(i));
+        result.push(deepClone(i));
       }
-      else answer.push(i);
+      else result.push(i);
     }
-    return answer;
+    return result;
   }
-  let answer = {};
+  let result = {};
   for (let key in obj ) {
     if (typeof obj[key] === 'object') {
-      answer[key] = deepClone(obj[key]);
+      result[key] = deepClone(obj[key]);
     }
     else {
-      answer[key] = obj[key];
+      result[key] = obj[key];
     }
   }
-  return answer;  
+  return result;  
 }
 
 module.exports = deepClone;
