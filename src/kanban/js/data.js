@@ -33,7 +33,6 @@ const dataMock = [
   },
 ];
 
-
 let data = dataMock;
 
 function data__getLastIssueNumber(data) {
@@ -127,4 +126,12 @@ function data__addNewTasks(data, title) {
   };
   data.unshift(newTasks);
   return newTasks;
+}
+
+function data__removeTasks(data, tasksTitle) {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].title === tasksTitle) {
+      data.splice(i, 1);
+    }
+  }
 }

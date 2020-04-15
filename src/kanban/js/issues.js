@@ -1,6 +1,6 @@
 'use strict'
 
-function setIssuesMoving() {
+function issues__setIssuesMoving() {
   document.body.addEventListener('click', (event) => { 
     let dropdown = document.querySelector('.input__dropdown');
     if (!dropdown) return;

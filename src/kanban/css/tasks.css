@@ -22,6 +22,7 @@
   vertical-align: top;
   cursor: pointer;
   margin-right: 8px;
+  position: relative;
 }
 
 .tasks__menu::before {
@@ -29,6 +30,30 @@
   font-size: 32px;
   line-height: 0;
   vertical-align: top;
+  z-index: 2;
+  position: relative;
+}
+
+.tasks__menuList {
+  list-style-type: none;
+  /* border: 2px solid #0079BF; */
+  border: 3px solid #EBECF0;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  right: -3px;
+  top: 0;
+  padding-top: 10px;
+  padding-bottom: 3px;
+  z-index: 1;
+}
+
+.tasks__menuItem {
+  padding: 5px 12px;
+}
+
+.tasks__menuItem:hover {
+  font-weight: 700;
 }
 
 .tasks__titleInput {
@@ -102,4 +127,14 @@
 
 .tasks__button--disabled .tasks__symbol {
   color: white;
+}
+
+.tasks__onEmptyBanner {
+   flex-basis: 100%;
+   text-align: center;
+   align-self: center; 
+   position: relative;
+   top: -5%;
+   font-size: 24px;
+   color: white;
 }
