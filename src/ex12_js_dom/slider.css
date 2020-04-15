@@ -10,8 +10,8 @@
 }
 
 .slider__frame {
-  width: 400px;
-  height: 300px;
+  width: 800px;
+  height: 600px;
   position: relative;
   overflow: hidden;
 }
@@ -28,14 +28,14 @@
 }
 
 .slider__slide {
-  width: 400px;
-  height: 300px;
+  width: 800px;
+  height: 600px;
   display: inline-block;
 }
 
 .slider__slide--visible {
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 .slider__image {
@@ -69,17 +69,21 @@
   text-shadow: 2px 0 0 steelblue, -2px 0 0 steelblue, 0 2px 0 steelblue, 0 -2px 0 steelblue;
 }
 
+.slider:hover .slider__buttonText {
+  font-size: 64px;
+}
+
 .slider__button:focus .slider__buttonText,
 .slider__button:hover .slider__buttonText {
   text-shadow: 2px 0 0 indianred, -2px 0 0 indianred, 0 2px 0 indianred, 0 -2px 0 indianred;
 }
 
 .slider__slideBar--rightShift {
-  transform: translateX(calc(-50% - 404px));
+  transform: translateX(calc(-50% - 806px));
   transition: transform 400ms ease-in-out;
 }
 
 .slider__slideBar--leftShift {
-  transform: translateX(calc(-50% + 404px));
+  transform: translateX(calc(-50% + 806px));
   transition: transform 400ms ease-in-out;
 }
