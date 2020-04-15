@@ -17,11 +17,54 @@ function tasks__createNewTasks() {
   return newTasks;
 }
 
-function tasks__addNewTasks(tasksObj) {
+function tasks__addTasks(tasksObj) {
   let newTasksContainer = tasks__createNewTasks();
   document.querySelector('.main').append(newTasksContainer);
   newTasksContainer.querySelector('.tasks__title').innerText = tasks__capitalizeWords(tasksObj.title); 
   return newTasksContainer.firstElementChild;
+}
+
+function tasks__addNewTasks() {
+  let innerHtml = `
+  <div class="tasks main__tasks">
+    <div class="tasks__header">
+      <input class="tasks__titleInput" type="text" autofocus>
+      <div class="tasks__menu"></div>
+    </div>
+    <div class="tasks__container">
+      <button class="tasks__button"><span class="tasks__symbol">+</span> Add card</button> 
+    </div>
+  </div>`;
+
+  let newTasks = document.createElement('div');
+  newTasks.innerHTML = innerHtml;
+  document.querySelector('.main').prepend(newTasks);
+  let titleInput = document.querySelector('.tasks__titleInput');
+  titleInput.addEventListener('blur', tasks__titleInputHandler);
+  titleInput.addEventListener('keydown', (event) => {
+    if (event.code === 'Enter') {
+      titleInput.blur(); 
+    }
+  });
+  titleInput.focus();
+  return newTasks; 
+}
+
+function tasks__titleInputHandler() {
+  let titleInput = document.querySelector('.tasks__titleInput');
+  let newTasks = titleInput.closest('.tasks');
+  if (titleInput.value === '') {
+    newTasks.parentElement.remove();
+  }
+  else {
+    newTasks.id = titleInput.value.toLowerCase();
+    let tasksTitle = document.createElement('span');
+    tasksTitle.innerText = tasks__capitalizeWords(titleInput.value);
+    tasksTitle.classList.add('tasks__title');
+    titleInput.parentElement.replaceChild(tasksTitle, titleInput);
+    data__addNewTasks(data, newTasks.id);
+    tasks__setButtonsAvailability();
+  }
 }
 
 function tasks__capitalizeWords(str) {
@@ -49,4 +92,8 @@ function tasks__setButtonsAvailability() {
       button.classList.remove('tasks__button--disabled');
     }
   }
+}
+
+function tasks__setCreateNewTasks() {
+  document.querySelector('.newListButton').addEventListener('click', tasks__addNewTasks);
 }

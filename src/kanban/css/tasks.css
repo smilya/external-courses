@@ -31,6 +31,16 @@
   vertical-align: top;
 }
 
+.tasks__titleInput {
+  outline: none;
+  border: none;
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  background-color: #EBECF0;;
+  width: 80%;
+}
+
 .tasks__container {
  height: 100%;
   overflow-y: auto;

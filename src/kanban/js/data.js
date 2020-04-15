@@ -20,21 +20,16 @@ const dataMock = [
       {
         id: 'issue2',
         name: 'Foo'
-      },
-      
+      },      
     ],
   },
   {
     title: 'in progress',
-    issues: [
-
-    ],
+    issues: [],
   },
   {
     title: 'finished',
-    issues: [
- 
-    ],
+    issues: [],
   },
 ];
 
@@ -125,3 +120,11 @@ function data__getIssuesToAdd(data, tasksTitle) {
   return undefined;
 }
 
+function data__addNewTasks(data, title) {
+  let newTasks = {
+    title: title,
+    issues: []
+  };
+  data.unshift(newTasks);
+  return newTasks;
+}

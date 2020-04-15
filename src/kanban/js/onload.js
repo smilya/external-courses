@@ -4,9 +4,10 @@ account__setMenuOpening();
 setIssuesMoving();
 layDataOut(data);
 tasks__setButtonsAvailability();
+tasks__setCreateNewTasks();
 
 function layTasksOut(tasksData) { 
-  let tasks = tasks__addNewTasks(tasksData);
+  let tasks = tasks__addTasks(tasksData);
   for (let issue of tasksData.issues) {
     input__addNewInput(tasks, issue);
   } 

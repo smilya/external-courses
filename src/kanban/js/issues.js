@@ -29,12 +29,12 @@ function setIssuesMoving() {
     if(!event.target.classList.contains('tasks__button') || event.target.classList.contains('tasks__button--disabled')) {
       return;
     }
-    else if (event.target.closest('.tasks[id="backlog"]')) {
-      let backlogTasks = document.getElementById('backlog');
-      let newInput = input__addNewInput(backlogTasks);
+    else if (event.target.closest('.tasks').id === data[0].title) {
+      let tasks = event.target.closest('.tasks');
+      let newInput = input__addNewInput(tasks);
       input__setInputResize(newInput);    
       newInput.querySelector('.input__area').focus();
-      let newIssueId = data__addNewIssue(data, 'backlog');
+      let newIssueId = data__addNewIssue(data, tasks.id);
       newInput.setAttribute('id', newIssueId);
       newInput.querySelector('.input__area').addEventListener('blur', input__modifyIssue);
     }

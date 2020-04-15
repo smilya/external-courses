@@ -33,10 +33,9 @@ function input__addNewInput(tasks, issue) {
   if (issue && issue.id) {
     newInput.setAttribute('id', issue.id);
   }
-  let tasksTitle = tasks.querySelector('.tasks__title').innerText;
-  if (tasksTitle === 'Backlog') {
+  if (tasks.id === data[0].title) {
     newInput.querySelector('.input__area').removeAttribute('disabled');
-    newInput.querySelector('.input__area').addEventListener('blur', input__modifyIssue);
+    newInput.querySelector('.input__area').addEventListener('blur', input__modifyIssue); 
   } 
   return newInput;
 }
