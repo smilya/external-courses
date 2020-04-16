@@ -45,14 +45,14 @@ function input__modifyIssue(event) {
   let currentAreaValue = event.target.value.trim();
   let currentIssueName = data__getIssueName(data, issueId);
   if (currentAreaValue === '') {
-    // input__removeInput(event.target.closest('.input'));
     event.target.closest('.input').remove();
     data__removeIssue(data, issueId);
   }
   if (currentAreaValue !== currentIssueName) {
     data__modifyIssue(data, issueId, currentAreaValue);
     tasks__setButtonsAvailability();
-  }
+    input__refreshCounters(data);
+  }  
 }
 
 function input__addDropdown(tasks) {
@@ -74,4 +74,32 @@ function input__removeDropdown() {
   let tasks = dropdown.closest('.tasks');
   dropdown.remove();
   return tasks;
+}
+
+function input__disableInputs(data) {
+  let inputAreas = document.querySelectorAll('.input__area');
+  for (let area of inputAreas) {
+    if (area.closest('.tasks').id === data[0].title) {
+      area.removeAttribute('disabled');
+    }
+    else {
+      area.setAttribute('disabled', true);
+    }
+  }
+}
+
+function input__refreshCounters(data) {
+  let inputs = document.querySelectorAll('.input');
+  let actives = 0;
+  let finished = 0;
+  for (let input of inputs) {
+    if (input.closest('.tasks').id === data[0].title) {
+      actives++;
+    }
+    if (input.closest('.tasks').id === data[data.length - 1].title) {
+      finished++;
+    }
+  }
+  document.getElementById("activeTasks").innerText = actives;
+  document.getElementById("finishedTasks").innerText = finished;
 }

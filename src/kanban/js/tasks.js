@@ -56,6 +56,7 @@ function tasks__removeTasks(data, tasks) {
   tasks.parentElement.remove();
   tasks__setButtonsAvailability();
   main__checkAndFlagIfEmpty();
+  input__refreshCounters(data);
 }
 
 function tasks__titleInputHandler() {
@@ -73,6 +74,8 @@ function tasks__titleInputHandler() {
     titleInput.parentElement.replaceChild(tasksTitle, titleInput);
     data__addNewTasks(data, newTasks.id);
     tasks__setButtonsAvailability();
+    input__disableInputs(data);
+    input__refreshCounters(data);
   }
 }
 
@@ -127,6 +130,7 @@ function tasks__setMenuOpening() {
       menu.addEventListener('click', (event) => {
         if(event.target.id === 'tasks-delete') {
           tasks__removeTasks(data, event.target.closest('.tasks'));
+          input__disableInputs(data);
         }
       });      
     }

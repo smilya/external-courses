@@ -18,6 +18,7 @@ function issues__setIssuesMoving() {
       let movedIssue = data__removeIssue(data, issueId);
       data__insertIssue(data, tasksTitle, movedIssue);
       tasks__setButtonsAvailability();
+      input__refreshCounters(data);
     }
     else {
       let tasks = input__removeDropdown();
