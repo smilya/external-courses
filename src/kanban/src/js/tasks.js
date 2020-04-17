@@ -1,6 +1,10 @@
 'use strict'
 
-function tasks__createNewTasks() {
+import {data, data__removeTasks, data__addNewTasks} from './data.js'
+import {main__checkAndFlagIfEmpty} from './main.js'
+import {input__refreshCounters, input__disableInputs} from './input.js'
+
+export function tasks__createNewTasks() {
   let innerHtml = `
     <div class="tasks main__tasks">
       <div class="tasks__header">
@@ -17,14 +21,14 @@ function tasks__createNewTasks() {
   return newTasks;
 }
 
-function tasks__addTasks(tasksObj) {
+export function tasks__addTasks(tasksObj) {
   let newTasksContainer = tasks__createNewTasks();
   document.querySelector('.main').append(newTasksContainer);
   newTasksContainer.querySelector('.tasks__title').innerText = tasks__capitalizeWords(tasksObj.title); 
   return newTasksContainer.firstElementChild;
 }
 
-function tasks__addNewTasks() {
+export function tasks__addNewTasks() {
   let innerHtml = `
   <div class="tasks main__tasks">
     <div class="tasks__header">
@@ -51,7 +55,7 @@ function tasks__addNewTasks() {
   return newTasks; 
 }
 
-function tasks__removeTasks(data, tasks) {
+export function tasks__removeTasks(data, tasks) {
   data__removeTasks(data, tasks.id);
   tasks.parentElement.remove();
   tasks__setButtonsAvailability();
@@ -59,7 +63,7 @@ function tasks__removeTasks(data, tasks) {
   input__refreshCounters(data);
 }
 
-function tasks__titleInputHandler() {
+export function tasks__titleInputHandler() {
   let titleInput = document.querySelector('.tasks__titleInput');
   let newTasks = titleInput.closest('.tasks');
   if (titleInput.value === '') {
@@ -79,7 +83,7 @@ function tasks__titleInputHandler() {
   }
 }
 
-function tasks__capitalizeWords(str) {
+export function tasks__capitalizeWords(str) {
   let result = [];
   let words = str.split(' ');
   for (let word of words) {
@@ -90,7 +94,7 @@ function tasks__capitalizeWords(str) {
   return result.join(' ');
 }
 
-function tasks__setButtonsAvailability() {
+export function tasks__setButtonsAvailability() {
   let tasks = document.querySelectorAll('.tasks');
   for (let i = 1; i < tasks.length; i++) {
     let availableIssues = tasks[i - 1].querySelectorAll('.tasks__input');
@@ -104,11 +108,11 @@ function tasks__setButtonsAvailability() {
   }
 }
 
-function tasks__setCreateNewTasks() {
+export function tasks__setCreateNewTasks() {
   document.querySelector('.newListButton').addEventListener('click', tasks__addNewTasks);
 }
 
-function tasks__setMenuOpening() {
+export function tasks__setMenuOpening() {
   let menuOpen = false;
   document.body.addEventListener('click', (event) => {
     if (menuOpen) {

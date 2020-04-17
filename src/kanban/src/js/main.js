@@ -1,6 +1,6 @@
 'use strict'
 
-function main__checkAndFlagIfEmpty() {
+export function main__checkAndFlagIfEmpty() {
   let main = document.querySelector('.main');
   let banner = document.querySelector('.tasks__onEmptyBanner');
   if (!main.childElementCount) {

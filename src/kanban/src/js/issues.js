@@ -1,6 +1,10 @@
 'use strict'
 
-function issues__setIssuesMoving() {
+import {data, data__addNewIssue, data__getIssueId, data__removeIssue, data__insertIssue} from './data.js';
+import {input__addNewInput, input__setInputResize, input__modifyIssue, input__addDropdown, input__removeDropdown, input__refreshCounters} from './input.js';
+import {tasks__setButtonsAvailability} from './tasks.js';
+
+export function issues__setIssuesMoving() {
   document.body.addEventListener('click', (event) => { 
     let dropdown = document.querySelector('.input__dropdown');
     if (!dropdown) return;

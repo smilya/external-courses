@@ -1,6 +1,9 @@
 'use strict'
 
-function input__setInputResize(input) {
+import {data, data__getIssueName, data__modifyIssue, data__removeIssue, data__getIssuesToAdd} from './data.js';
+import {tasks__setButtonsAvailability} from './tasks.js';
+
+export function input__setInputResize(input) {
   let area = input.querySelector('.input__area');
   area.addEventListener('input', function() {
     let comparator = this.nextElementSibling;
@@ -10,7 +13,7 @@ function input__setInputResize(input) {
   }, false);
 }
 
-function input__createNewInput() {
+export function input__createNewInput() {
   let innerHTML = `
       <textarea class="input__area input__element" disabled></textarea>
       <p class="input__comparator input__element"></p>        
@@ -21,7 +24,7 @@ function input__createNewInput() {
   return newInput;
 }
 
-function input__addNewInput(tasks, issue) {
+export function input__addNewInput(tasks, issue) {
   let button = tasks.querySelector('.tasks__button');
   let newInput = input__createNewInput();
   button.before(newInput);
@@ -40,7 +43,7 @@ function input__addNewInput(tasks, issue) {
   return newInput;
 }
 
-function input__modifyIssue(event) {
+export function input__modifyIssue(event) {
   let issueId = event.target.closest('.input').id;
   let currentAreaValue = event.target.value.trim();
   let currentIssueName = data__getIssueName(data, issueId);
@@ -55,7 +58,7 @@ function input__modifyIssue(event) {
   }  
 }
 
-function input__addDropdown(tasks) {
+export function input__addDropdown(tasks) {
   let dropdown = document.createElement('ul');
   dropdown.setAttribute('tabindex', 1);
   dropdown.classList.add('input__dropdown');
@@ -69,14 +72,14 @@ function input__addDropdown(tasks) {
   tasks.querySelector('.tasks__input:last-of-type').append(dropdown);
 }
 
-function input__removeDropdown() {
+export function input__removeDropdown() {
   let dropdown = document.querySelector('.input__dropdown');
   let tasks = dropdown.closest('.tasks');
   dropdown.remove();
   return tasks;
 }
 
-function input__disableInputs(data) {
+export function input__disableInputs(data) {
   let inputAreas = document.querySelectorAll('.input__area');
   for (let area of inputAreas) {
     if (area.closest('.tasks').id === data[0].title) {
@@ -88,7 +91,7 @@ function input__disableInputs(data) {
   }
 }
 
-function input__refreshCounters(data) {
+export function input__refreshCounters(data) {
   let inputs = document.querySelectorAll('.input');
   let actives = 0;
   let finished = 0;
