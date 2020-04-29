@@ -26,6 +26,24 @@ function setSlider(images, imageNumberParam=0) {
     }
   }
 
+  function clearShifts() {
+    slideBar.classList.remove('slider__slideBar--leftShift');
+    slideBar.classList.remove('slider__slideBar--rightShift');
+  }
+
+  function reloadSlider(imageNumber) {
+    new Promise((resolve) => {
+      slideBar.addEventListener('transitionend', function clickHandler() {
+        slideBar.removeEventListener('transitionend', clickHandler);
+        resolve();
+      })
+    }).then(() => {
+      clearShifts();
+      fillSlides(imageNumber, images);
+      isSliderBusy = false;
+    });
+  }
+
   document.querySelector('.slider__button--left').addEventListener('click', () => {
     if (isSliderBusy) { 
       return; 
@@ -36,12 +54,8 @@ function setSlider(images, imageNumberParam=0) {
       imageNumber = images.length - 1;
     }
     slideBar.classList.add('slider__slideBar--leftShift');
-    setTimeout(() => {
-      clearShifts();
-      fillSlides(imageNumber, images);
-      isSliderBusy = false;
-    }, 400);
-  });
+    reloadSlider(imageNumber);
+   });
 
   document.querySelector('.slider__button--right').addEventListener('click', () => {
     if (isSliderBusy) { 
@@ -53,15 +67,6 @@ function setSlider(images, imageNumberParam=0) {
       imageNumber = 0;
     }
     slideBar.classList.add('slider__slideBar--rightShift');
-    setTimeout(() => {
-      clearShifts();
-      fillSlides(imageNumber, images);
-      isSliderBusy = false;
-    }, 400);  
+    reloadSlider(imageNumber);
   });
-
-  function clearShifts() {
-    slideBar.classList.remove('slider__slideBar--leftShift');
-    slideBar.classList.remove('slider__slideBar--rightShift');
-  }
 }  
