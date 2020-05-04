@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <link rel="stylesheet" href="task-01.css">
+  <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+<div class="container">
+  <div class="slider">
+    <div class="slider__frame">
+      <div class="slider__slideBar">
+          <figure class="slider__slide">
+            <img class="slider__image" alt="previous slide">
+          </figure>
+          <figure class="slider__slide slider__slide--visible">
+            <img class="slider__image" alt=" visible slide">
+          </figure>
+          <figure class="slider__slide">
+            <img class="slider__image" alt="next slide">
+          </figure>
+      </div>
+    </div>
+    <button class="slider__button slider__button--left" tabindex="1">
+      <span class="slider__buttonText">&#x276E;</span>
+    </button>
+    <button class="slider__button slider__button--right" tabindex="2">
+      <span class="slider__buttonText">&#x276F;</span>
+    </button>
+  </div>
+</div>
+  <script src="slider.js"></script>
+  <script src="task-01.js"></script>
+
+</body>
+</html>
