@@ -5,7 +5,7 @@ export function main__checkEmpty() {
   let banner = document.querySelector('.tasks__onEmptyBanner');
   if (!main.childElementCount) {
     let newBanner = document.createElement('p');
-    newBanner.innerHTML = "There are no tasklists available.<br>" + "Use 'Create new list' button to add one.";
+    newBanner.innerHTML = "There are no tasklists available.<br>Use 'Create new list' button to add one.";
     newBanner.classList.add('tasks__onEmptyBanner');
     main.append(newBanner);
   }
