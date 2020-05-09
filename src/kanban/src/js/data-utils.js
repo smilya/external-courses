@@ -35,7 +35,7 @@ const dataMock = [
 
 export let data = dataMock;
 
-export function data__getLastIssueNumber(data) {
+export function data_utils__getLastIssueNumber(data) {
   let issueNumbers = [];
   for (let tasksData of data) {
     for (let issue of tasksData.issues) {
@@ -45,7 +45,7 @@ export function data__getLastIssueNumber(data) {
   return Math.max(...issueNumbers);
 }
 
-export function data__getIssueName(data, issueId) {
+export function data_utils__getIssueName(data, issueId) {
   for (let tasksData of data) {
     for (let issue of tasksData.issues) {
       if (issue.id === issueId) {
@@ -56,7 +56,7 @@ export function data__getIssueName(data, issueId) {
   return undefined; // для того, чтобы линт не ругался
 }
 
-export function data__getIssueId(data, issueName) {
+export function data_utils__getIssueId(data, issueName) {
   for (let tasksData of data) {
     for (let issue of tasksData.issues) {
       if (issue.name === issueName) {
@@ -67,8 +67,8 @@ export function data__getIssueId(data, issueName) {
   return undefined; // для того, чтобы линт не ругался
 }
 
-export function data__addNewIssue(data, title) {
-  let newIssueNumber = data__getLastIssueNumber(data) + 1;
+export function data_utils__addNewIssue(data, title) {
+  let newIssueNumber = data_utils__getLastIssueNumber(data) + 1;
   let issueId = 'issue'+newIssueNumber;
   let newIssue = {id: issueId};
   for (let tasksData of data) {
@@ -79,7 +79,7 @@ export function data__addNewIssue(data, title) {
   return issueId;
 }
 
-export function data__removeIssue(data, issueId) {
+export function data_utils__removeIssue(data, issueId) {
   let removedIssue;
   for (let tasksData of data) {
     for (let i = 0; i < tasksData.issues.length; i++) {
@@ -92,7 +92,7 @@ export function data__removeIssue(data, issueId) {
   return removedIssue;
 }
 
-export function data__insertIssue(data, title, issue) {
+export function data_utils__insertIssue(data, title, issue) {
     for (let tasksData of data) {
       if(tasksData.title === title) {
         tasksData.issues.push(issue);
@@ -100,7 +100,7 @@ export function data__insertIssue(data, title, issue) {
     }
 }
 
-export function data__modifyIssue(data, issueId, name) {
+export function data_utils__modifyIssue(data, issueId, name) {
   for (let tasksData of data) {
     for (let issue of tasksData.issues) {
       if (issue.id === issueId) {
@@ -110,7 +110,7 @@ export function data__modifyIssue(data, issueId, name) {
   }
 }
 
-export function data__getIssuesToAdd(data, tasksTitle) {
+export function data_utils__getIssuesToAdd(data, tasksTitle) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].title === tasksTitle) {
       return data[i - 1].issues;
@@ -119,7 +119,7 @@ export function data__getIssuesToAdd(data, tasksTitle) {
   return undefined;
 }
 
-export function data__addNewTasks(data, title) {
+export function data_utils__addNewTasks(data, title) {
   let newTasks = {
     title: title,
     issues: []
@@ -128,7 +128,7 @@ export function data__addNewTasks(data, title) {
   return newTasks;
 }
 
-export function data__removeTasks(data, tasksTitle) {
+export function data_utils__removeTasks(data, tasksTitle) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].title === tasksTitle) {
       data.splice(i, 1);

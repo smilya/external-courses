@@ -6,13 +6,13 @@
   width: 100%;
 }
 
-.input__element {
+.input_utils__element {
   font-size: 18px;
   line-height: 21px;
   font-family: "Roboto";  
 }
 
-.input__area {
+.input_utils__area {
   height: 21px;
   resize: none;  
   border: none;
@@ -22,29 +22,29 @@
   width: 100%;
 }
 
-.input__area:disabled {
+.input_utils__area:disabled {
   background-color: #fff;
 }
 
-.input__comparator {
+.input_utils__comparator {
   min-height: 21px;
   position: absolute;
   visibility: hidden; 
 }
 
-.input__dropdown {
+.input_utils__dropdown {
   outline: none;
   padding-left: 10px;
 }
 
-.input__dropdownItem {
+.input_utils__dropdownItem {
   color: #5E6C84;
   list-style-type: none;  
   margin-top: 3px;
   line-height: 110%;
 }
 
-.input__dropdownItem:hover {
+.input_utils__dropdownItem:hover {
   cursor: pointer;
   color: black;
   font-weight: 700;

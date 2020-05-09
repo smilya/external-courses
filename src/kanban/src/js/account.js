@@ -1,6 +1,6 @@
 'use strict'
 
-export function account__setMenuOpening() {
+export function account__setMenuOpen() {
   let isAccountOpen = false;
   let account = document.querySelector('.account');
   let dropdown = document.querySelector('.account__dropdown');

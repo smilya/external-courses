@@ -1,10 +1,10 @@
 'use strict'
 
-import {data, data__getIssueName, data__modifyIssue, data__removeIssue, data__getIssuesToAdd} from './data.js';
+import {data, data_utils__getIssueName, data_utils__modifyIssue, data_utils__removeIssue, data_utils__getIssuesToAdd} from './data-utils.js';
 import {tasks__setButtonsAvailability} from './tasks.js';
 
-export function input__setInputResize(input) {
-  let area = input.querySelector('.input__area');
+export function input_utils__setInputResize(input) {
+  let area = input.querySelector('.input_utils__area');
   area.addEventListener('input', function() {
     let comparator = this.nextElementSibling;
     comparator.innerHTML = this.value;
@@ -13,10 +13,10 @@ export function input__setInputResize(input) {
   }, false);
 }
 
-export function input__createNewInput() {
+export function input_utils__createNewInput() {
   let innerHTML = `
-      <textarea class="input__area input__element" disabled></textarea>
-      <p class="input__comparator input__element"></p>        
+      <textarea class="input_utils__area input_utils__element" disabled></textarea>
+      <p class="input_utils__comparator input_utils__element"></p>        
   `;
   let newInput = document.createElement('div');
   newInput.classList.value = "tasks__input input";
@@ -24,63 +24,63 @@ export function input__createNewInput() {
   return newInput;
 }
 
-export function input__addNewInput(tasks, issue) {
+export function input_utils__addNewInput(tasks, issue) {
   let button = tasks.querySelector('.tasks__button');
-  let newInput = input__createNewInput();
+  let newInput = input_utils__createNewInput();
   button.before(newInput);
-  input__setInputResize(newInput);
+  input_utils__setInputResize(newInput);
   if (issue && issue.name) {
-    let area = newInput.querySelector('.input__area');
+    let area = newInput.querySelector('.input_utils__area');
     area.value = issue.name;   
   }
   if (issue && issue.id) {
     newInput.setAttribute('id', issue.id);
   }
   if (tasks.id === data[0].title) {
-    newInput.querySelector('.input__area').removeAttribute('disabled');
-    newInput.querySelector('.input__area').addEventListener('blur', input__modifyIssue); 
+    newInput.querySelector('.input_utils__area').removeAttribute('disabled');
+    newInput.querySelector('.input_utils__area').addEventListener('blur', input_utils__modifyIssue); 
   } 
   return newInput;
 }
 
-export function input__modifyIssue(event) {
+export function input_utils__modifyIssue(event) {
   let issueId = event.target.closest('.input').id;
   let currentAreaValue = event.target.value.trim();
-  let currentIssueName = data__getIssueName(data, issueId);
+  let currentIssueName = data_utils__getIssueName(data, issueId);
   if (currentAreaValue === '') {
     event.target.closest('.input').remove();
-    data__removeIssue(data, issueId);
+    data_utils__removeIssue(data, issueId);
   }
   if (currentAreaValue !== currentIssueName) {
-    data__modifyIssue(data, issueId, currentAreaValue);
+    data_utils__modifyIssue(data, issueId, currentAreaValue);
     tasks__setButtonsAvailability();
-    input__refreshCounters(data);
+    input_utils__refreshCounters(data);
   }  
 }
 
-export function input__addDropdown(tasks) {
+export function input_utils__addDropdown(tasks) {
   let dropdown = document.createElement('ul');
   dropdown.setAttribute('tabindex', 1);
-  dropdown.classList.add('input__dropdown');
-  let issues = data__getIssuesToAdd(data, tasks.id);
+  dropdown.classList.add('input_utils__dropdown');
+  let issues = data_utils__getIssuesToAdd(data, tasks.id);
   for (let issue of issues) {
     let dropdownItem = document.createElement('li');
-    dropdownItem.classList.add('input__dropdownItem');
+    dropdownItem.classList.add('input_utils__dropdownItem');
     dropdownItem.innerText = issue.name;
     dropdown.append(dropdownItem);    
   }
   tasks.querySelector('.tasks__input:last-of-type').append(dropdown);
 }
 
-export function input__removeDropdown() {
-  let dropdown = document.querySelector('.input__dropdown');
+export function input_utils__removeDropdown() {
+  let dropdown = document.querySelector('.input_utils__dropdown');
   let tasks = dropdown.closest('.tasks');
   dropdown.remove();
   return tasks;
 }
 
-export function input__disableInputs(data) {
-  let inputAreas = document.querySelectorAll('.input__area');
+export function input_utils__disableInputs(data) {
+  let inputAreas = document.querySelectorAll('.input_utils__area');
   for (let area of inputAreas) {
     if (area.closest('.tasks').id === data[0].title) {
       area.removeAttribute('disabled');
@@ -91,7 +91,7 @@ export function input__disableInputs(data) {
   }
 }
 
-export function input__refreshCounters(data) {
+export function input_utils__refreshCounters(data) {
   let inputs = document.querySelectorAll('.input');
   let actives = 0;
   let finished = 0;

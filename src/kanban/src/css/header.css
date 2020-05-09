@@ -8,6 +8,8 @@
 
 .header__menu {
   margin-right: 14px;
+  transform: translateY(2px);
+  cursor: pointer;
 }
 
 .header__title {

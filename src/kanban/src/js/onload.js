@@ -3,26 +3,26 @@
 import {
 	tasks__addTasks,
 	tasks__setCreateNewTasks,
-	tasks__setMenuOpening,
+	tasks__setMenuOpen,
 	tasks__setButtonsAvailability
 } from './tasks.js';
 import {
-	input__addNewInput,
-	input__refreshCounters
-} from './input.js';
-import {account__setMenuOpening} from './account.js';
+	input_utils__addNewInput,
+	input_utils__refreshCounters
+} from './input-utils.js';
+import {account__setMenuOpen} from './account.js';
 import {issues__setIssuesMoving} from './issues.js';
-import {data} from './data.js';
-import {main__checkAndFlagIfEmpty} from './main.js';
+import {data} from './data-utils.js';
+import {main__checkEmpty} from './main.js';
 
-account__setMenuOpening();
+account__setMenuOpen();
 issues__setIssuesMoving();
 onload__layDataOut(data);
-main__checkAndFlagIfEmpty();
+main__checkEmpty();
 tasks__setButtonsAvailability();
-input__refreshCounters(data);
+input_utils__refreshCounters(data);
 tasks__setCreateNewTasks();
-tasks__setMenuOpening();
+tasks__setMenuOpen();
 
 export function onload__layDataOut(data) {
   for (let tasksData of data) {
@@ -30,7 +30,7 @@ export function onload__layDataOut(data) {
     let tasksTitle = tasks.querySelector('.tasks__title').innerText.toLowerCase();
     tasks.setAttribute('id', tasksTitle);
     for (let issue of tasksData.issues) {
-      input__addNewInput(tasks, issue);
+      input_utils__addNewInput(tasks, issue);
     }  
   }
 }
