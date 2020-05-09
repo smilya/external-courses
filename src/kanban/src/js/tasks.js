@@ -1,10 +1,10 @@
 'use strict'
 
-import {data, data_utils__removeTasks, data_utils__addNewTasks} from './data-utils.js'
-import {main__checkEmpty} from './main.js'
-import {input_utils__refreshCounters, input_utils__disableInputs} from './input-utils.js'
+import {data, removeTasks, addNewTasks} from './data-utils.js'
+import {checkIfMainEmpty} from './main.js'
+import {refreshCounters, disableInputs} from './input-utils.js'
 
-export function tasks__createNewTasks() {
+export function createNewTasks() {
   let innerHtml = `
     <div class="tasks main__tasks">
       <div class="tasks__header">
@@ -21,14 +21,14 @@ export function tasks__createNewTasks() {
   return newTasks;
 }
 
-export function tasks__addTasks(tasksObj) {
-  let newTasksContainer = tasks__createNewTasks();
+export function addTasks(tasksObj) {
+  let newTasksContainer = createNewTasks();
   document.querySelector('.main').append(newTasksContainer);
-  newTasksContainer.querySelector('.tasks__title').innerText = tasks__capitalizeWords(tasksObj.title); 
+  newTasksContainer.querySelector('.tasks__title').innerText = capitalizeWords(tasksObj.title); 
   return newTasksContainer.firstElementChild;
 }
 
-export function tasks__addNewTasks() {
+export function addNewTasksBoard() {
   let innerHtml = `
   <div class="tasks main__tasks">
     <div class="tasks__header">
@@ -43,9 +43,9 @@ export function tasks__addNewTasks() {
   let newTasks = document.createElement('div');
   newTasks.innerHTML = innerHtml;
   document.querySelector('.main').prepend(newTasks);
-  main__checkEmpty();
+  checkIfMainEmpty();
   let titleInput = document.querySelector('.tasks__titleInput');
-  titleInput.addEventListener('blur', tasks__titleInputHandler);
+  titleInput.addEventListener('blur', titleInputHandler);
   titleInput.addEventListener('keydown', (event) => {
     if (event.code === 'Enter') {
       titleInput.blur(); 
@@ -55,35 +55,35 @@ export function tasks__addNewTasks() {
   return newTasks; 
 }
 
-export function tasks__removeTasks(data, tasks) {
-  data_utils__removeTasks(data, tasks.id);
+export function removeTasksBoard(data, tasks) {
+  removeTasks(data, tasks.id);
   tasks.parentElement.remove();
-  tasks__setButtonsAvailability();
-  main__checkEmpty();
-  input_utils__refreshCounters(data);
+  setButtonsAvailability();
+  checkIfMainEmpty();
+  refreshCounters(data);
 }
 
-export function tasks__titleInputHandler() {
+export function titleInputHandler() {
   let titleInput = document.querySelector('.tasks__titleInput');
   let newTasks = titleInput.closest('.tasks');
   if (titleInput.value === '') {
     newTasks.parentElement.remove();
-    main__checkEmpty();
+    checkIfMainEmpty();
   }
   else {
     newTasks.id = titleInput.value.toLowerCase();
     let tasksTitle = document.createElement('span');
-    tasksTitle.innerText = tasks__capitalizeWords(titleInput.value);
+    tasksTitle.innerText = capitalizeWords(titleInput.value);
     tasksTitle.classList.add('tasks__title');
     titleInput.parentElement.replaceChild(tasksTitle, titleInput);
-    data_utils__addNewTasks(data, newTasks.id);
-    tasks__setButtonsAvailability();
-    input_utils__disableInputs(data);
-    input_utils__refreshCounters(data);
+    addNewTasks(data, newTasks.id);
+    setButtonsAvailability();
+    disableInputs(data);
+    refreshCounters(data);
   }
 }
 
-export function tasks__capitalizeWords(str) {
+export function capitalizeWords(str) {
   let result = [];
   let words = str.split(' ');
   for (let word of words) {
@@ -94,7 +94,7 @@ export function tasks__capitalizeWords(str) {
   return result.join(' ');
 }
 
-export function tasks__setButtonsAvailability() {
+export function setButtonsAvailability() {
   let tasks = document.querySelectorAll('.tasks');
   for (let i = 1; i < tasks.length; i++) {
     let availableIssues = tasks[i - 1].querySelectorAll('.tasks__input');
@@ -108,11 +108,11 @@ export function tasks__setButtonsAvailability() {
   }
 }
 
-export function tasks__setCreateNewTasks() {
-  document.querySelector('.newListButton').addEventListener('click', tasks__addNewTasks);
+export function setCreateNewTasks() {
+  document.querySelector('.newListButton').addEventListener('click', addNewTasksBoard);
 }
 
-export function tasks__setMenuOpen() {
+export function setTasksMenuOpen() {
   let isMenuOpen= false;
   document.body.addEventListener('click', (event) => {
     if (isMenuOpen) {
@@ -133,8 +133,8 @@ export function tasks__setMenuOpen() {
       isMenuOpen= true;
       menu.addEventListener('click', (event) => {
         if(event.target.id === 'tasks-delete') {
-          tasks__removeTasks(data, event.target.closest('.tasks'));
-          input_utils__disableInputs(data);
+          removeTasksBoard(data, event.target.closest('.tasks'));
+          disableInputs(data);
         }
       });      
     }
